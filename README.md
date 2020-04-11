@@ -1,8 +1,8 @@
-### 使用步骤 (Use setup)
+### 使用步骤
 
 开发当中...
 
-### 参考 (Acknowledgements)
+### 参考 
 - [vue-manage-system](https://github.com/lin-xin/vue-manage-system)
 
 - [wl-micro-frontends](https://github.com/hql7/wl-micro-frontends)
