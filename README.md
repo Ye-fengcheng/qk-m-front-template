@@ -2,7 +2,7 @@
 
 开发当中...
 
-### 致谢 (Acknowledgements)
+### 参考 (Acknowledgements)
 - [vue-manage-system](https://github.com/lin-xin/vue-manage-system)
 
 - [wl-micro-frontends](https://github.com/hql7/wl-micro-frontends)
