@@ -1,12 +1,14 @@
 <template>
+    <!--
+        background-color="#324157"
+        text-color="#bfcbd9"
+        active-text-color="#20a0ff"
+    -->
     <div class="sidebar">
         <el-menu
             class="sidebar-el-menu"
             :default-active="onRoutes"
             :collapse="collapse"
-            background-color="#324157"
-            text-color="#bfcbd9"
-            active-text-color="#20a0ff"
             unique-opened
             router
         >
@@ -23,18 +25,31 @@
                                 :index="subItem.index"
                                 :key="subItem.index"
                             >
-                                <template slot="title">{{ subItem.title }}</template>
+                                <template slot="title">
+                                    <i :class="subItem.icon"></i>
+                                    <span slot="title">{{ subItem.title }}</span>
+                                </template>
                                 <el-menu-item
                                     v-for="(threeItem,i) in subItem.subs"
                                     :key="i"
                                     :index="threeItem.index"
-                                >{{ threeItem.title }}</el-menu-item>
+                                >
+                                    <template slot="title">
+                                        <i :class="threeItem.icon"></i>
+                                        <span slot="title">{{ threeItem.title }}</span>
+                                    </template>
+                                </el-menu-item>
                             </el-submenu>
                             <el-menu-item
                                 v-else
                                 :index="subItem.index"
                                 :key="subItem.index"
-                            >{{ subItem.title }}</el-menu-item>
+                            >
+                                <template slot="title">
+                                    <i :class="subItem.icon"></i>
+                                    <span slot="title">{{ subItem.title }}</span>
+                                </template>
+                            </el-menu-item>
                         </template>
                     </el-submenu>
                 </template>
@@ -59,96 +74,103 @@ export default {
                 {
                     icon: 'el-icon-platform-eleme',
                     index: 'dashboard',
-                    title: '系统首页'
-                },
-                {
-                    icon: 'el-icon-s-grid',
-                    index: 'table',
-                    title: '基础表格'
-                },
-                {
-                    icon: 'el-icon-s-tools',
-                    index: 'tabs',
-                    title: 'tab选项卡'
-                },
-                {
-                    icon: 'el-icon-lx-calendar',
-                    index: '3',
-                    title: '表单相关',
+                    title: 'vue-elementui',
                     subs: [
                         {
-                            index: 'form',
-                            title: '基本表单'
+                            icon: 'el-icon-platform-eleme',
+                            index: 'dashboard',
+                            title: '系统首页'
                         },
                         {
-                            index: '3-2',
-                            title: '三级菜单',
+                            icon: 'el-icon-s-grid',
+                            index: 'table',
+                            title: '基础表格'
+                        },
+                        {
+                            icon: 'el-icon-s-tools',
+                            index: 'tabs',
+                            title: 'tab选项卡'
+                        },
+                        {
+                            icon: 'el-icon-s-platform',
+                            index: '3',
+                            title: '表单相关',
                             subs: [
                                 {
-                                    index: 'editor',
-                                    title: '富文本编辑器'
+                                    index: 'form',
+                                    title: '基本表单'
                                 },
                                 {
-                                    index: 'markdown',
-                                    title: 'markdown编辑器'
+                                    index: '3-2',
+                                    title: '三级菜单',
+                                    subs: [
+                                        {
+                                            index: 'editor',
+                                            title: '富文本编辑器'
+                                        },
+                                        {
+                                            index: 'markdown',
+                                            title: 'markdown编辑器'
+                                        }
+                                    ]
+                                },
+                                {
+                                    index: 'upload',
+                                    title: '文件上传'
                                 }
                             ]
                         },
                         {
-                            index: 'upload',
-                            title: '文件上传'
-                        }
-                    ]
-                },
-                {
-                    icon: 'el-icon-lx-emoji',
-                    index: 'icon',
-                    title: '自定义图标'
-                },
-                {
-                    icon: 'el-icon-pie-chart',
-                    index: 'charts',
-                    title: 'schart图表'
-                },
-                {
-                    icon: 'el-icon-rank',
-                    index: '6',
-                    title: '拖拽组件',
-                    subs: [
-                        {
-                            index: 'drag',
-                            title: '拖拽列表'
+                            icon: 'el-icon-picture',
+                            index: 'icon',
+                            title: '自定义图标'
                         },
                         {
-                            index: 'dialog',
-                            title: '拖拽弹框'
-                        }
-                    ]
-                },
-                {
-                    icon: 'el-icon-lx-global',
-                    index: 'i18n',
-                    title: '国际化功能'
-                },
-                {
-                    icon: 'el-icon-lx-warn',
-                    index: '7',
-                    title: '错误处理',
-                    subs: [
-                        {
-                            index: 'permission',
-                            title: '权限测试'
+                            icon: 'el-icon-pie-chart',
+                            index: 'charts',
+                            title: 'schart图表'
                         },
                         {
-                            index: '404',
-                            title: '404页面'
+                            icon: 'el-icon-rank',
+                            index: '6',
+                            title: '拖拽组件',
+                            subs: [
+                                {
+                                    index: 'drag',
+                                    title: '拖拽列表'
+                                },
+                                {
+                                    index: 'dialog',
+                                    title: '拖拽弹框'
+                                }
+                            ]
+                        },
+                        {
+                            icon: 'el-icon-lx-global',
+                            index: 'i18n',
+                            title: '国际化功能'
+                        },
+                        {
+                            icon: 'el-icon-lx-warn',
+                            index: '7',
+                            title: '错误处理',
+                            subs: [
+                                {
+                                    index: 'permission',
+                                    title: '权限测试'
+                                },
+                                {
+                                    index: '404',
+                                    title: '404页面'
+                                }
+                            ]
+                        },
+                        {
+                            icon: 'el-icon-lx-redpacket_fill',
+                            index: '/donate',
+                            title: '支持作者'
                         }
                     ]
-                },
-                {
-                    icon: 'el-icon-lx-redpacket_fill',
-                    index: '/donate',
-                    title: '支持作者'
                 }
             ]
         };

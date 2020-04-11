@@ -1,9 +1,9 @@
 module.exports = {
-    publicPath: '/',
     assetsDir: 'static',
     productionSourceMap: false,
     devServer: {
         port: 8000,
+        hot: true
     //     host: 'local.test.cn',
     //     proxy: {
     //         '/api':{
